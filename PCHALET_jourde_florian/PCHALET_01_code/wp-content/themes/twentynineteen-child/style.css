@@ -10,9 +10,11 @@ Version: 0.1.0
 
 :root {
   --clr-brown: hsl(39, 100%, 26%);
+  --clr-light-brown: hsl(39, 100%, 36%);
   --clr-light-cream: hsl(39, 100%, 90%);
   --clr-cream: #ffdb99;
   --clr-very-dark-brown: #1d160c;
+  --clr-dark-brown: hsl(35, 41%, 25%);
   --clr-blue: #5bc3eb;
   --clr-dark-blue: #126d91;
   --clr-very-dark-blue: hsl(197, 50%, 12%);
@@ -71,7 +73,7 @@ a, .site-branding-container a, .entry .entry-title a {
 }
 
 a:hover, a:active {
-  color: var(--clr-very-dark-brown);
+  color: var(--clr-dark-brown);
 }
 
 .author-description .author-link, .comment-metadata, .comment-reply-link, .comments-title, .comment-author .fn, .discussion-meta-info, .entry-meta, .entry-footer, .main-navigation, .no-comments, .not-found .page-title, .error-404 .page-title, .post-navigation .post-title, .page-links, .page-description, .pagination .nav-links, .sticky-post, .site-title, .site-info, #cancel-comment-reply-link, h1, h2, h3, h4, h5, h6 {
@@ -80,7 +82,7 @@ a:hover, a:active {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--clr-very-dark-brown);
+  color: var(--clr-dark-brown);
   margin: 0;
 }
 
@@ -99,7 +101,7 @@ section h2 {
 .site-header {
   position: fixed;
   background-color: white;
-  z-index: 10;
+  z-index: 100;
   width: inherit;
   padding: 1rem 0;
   font-family: var(--ff-primary);
@@ -146,6 +148,47 @@ section h2 {
   z-index: 10;
 }
 
+.archive-banner {
+  height: 600px;
+}
+
+.single-banner {
+  height: 400px;
+}
+
+.archive-banner h1, .single-banner h1 {
+  margin-bottom: unset;
+}
+
+.single-banner .thumbnail {
+  height: inherit;
+  width: 100%;
+  object-fit: cover;
+}
+
+.single-section {
+  display: flex;
+}
+
+.single-section .showing {
+  width: 60%;
+  margin-right: 100px;
+}
+
+.single-section .showing img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--br-primary);
+}
+
+.single-section .content {
+  border-radius: var(--br-primary);
+  background-color: var(--clr-light-cream);
+  padding: 50px;
+  width: 40%;
+}
+
 .wrapper {
   width: 100%;
   padding-left: 1rem;
@@ -160,54 +203,23 @@ section h2 {
   flex-direction: inherit;
 }
 
-/*.banner-section {*/
-/*  background-image: url('./images/chalet_6.jpg');*/
-/*  background-size: cover;*/
-/*  color: white;*/
-/*  height: 100vh;*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  text-align: center;*/
-/*  flex-direction: column;*/
-/*}*/
-
-/*.banner-section::before {*/
-/*  content: "";*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  position: absolute;*/
-/*  background-color: var(--clr-very-dark-brown);*/
-/*  opacity: 0.7;*/
-/*}*/
-
-/*.banner-section h1, .banner-section h2 {*/
-/*  z-index: 1;*/
-/*  color: var(--clr-light-cream);*/
-/*  text-shadow: var(--bs-secondary);*/
-/*}*/
-
-/*.banner-section h2 {*/
-/*  opacity: 0.7;*/
-/*  font-weight: 300;*/
-/*}*/
-
 section {
   padding: 100px 0;
 }
 
-.rentals {
+.rentals, .archive-rentals {
   margin-bottom: 50px;
 }
 
-.rentals .cards, .sales .cards {
+.rentals .cards, .sales .cards, .archive-rentals .cards {
   text-align: left;
   display: grid;
-  gap: 40px;
+  gap: 50px;
   grid: repeat(2, 1fr) / auto-flow;
   /*justify-content: space-between;*/
 }
 
-.rentals .card, .sales .card {
+.rentals .entry, .sales .entry, .archive-rentals .entry {
   box-shadow: var(--bs-tertiary);
   border-radius: var(--br-secondary);
   display: flex;
@@ -217,7 +229,7 @@ section {
   /*flex-wrap: wrap;*/
 }
 
-.rentals .thumbnail,.sales .thumbnail {
+.rentals .thumbnail,.sales .thumbnail,.archive-rentals .thumbnail {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -226,12 +238,12 @@ section {
   border-top-left-radius: inherit;
 }
 
-.rentals .title, .sales .title {
+.rentals .title, .sales .title, .archive-rentals .title, .single-section .title {
   margin-bottom: 20px;
 }
 
-.rentals .content,.sales .content {
-  margin: 40px;
+.rentals .content,.sales .content,.archive-rentals .content, .single-section .content {
+  /*margin: 40px;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -239,20 +251,43 @@ section {
   /*margin-right: 30px;*/
 }
 
-.rentals .infos, .sales .infos {
+.rentals .content,.sales .content,.archive-rentals .content {
+  margin: 40px;
+}
+
+.rentals .infos, .sales .infos, .archive-rentals .infos, .single-section .infos {
   display: flex;
   justify-content: space-between;
 }
 
-.rentals .infos :not(:last-child), .sales .infos :not(:last-child) {
+.rentals .infos :not(:last-child), .sales .infos :not(:last-child), .archive-rentals .infos :not(:last-child) {
   margin-right: 20px;
 }
 
-.rentals .description, .sales .description {
+.rentals .description, .sales .description, .archive-rentals .description, .single-section .description {
   margin-bottom: 20px;
-  /*flex-grow: 1;*/
+  flex-grow: 1;
 }
 
 .sales {
-  background-color: var(--clr-very-dark-brown);
+  background-color: var(--clr-dark-brown);
+}
+
+.entry {
+  margin-top: unset;
+}
+
+.entry a {
+  border-radius: inherit;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.entry a:visited {
+  color: var(--clr-brown);
+}
+
+.site-featured-image {
+  z-index: -100;
 }

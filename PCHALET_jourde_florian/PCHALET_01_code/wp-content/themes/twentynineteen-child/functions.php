@@ -70,3 +70,8 @@ function custom_post_type_sales() {
 
   register_post_type( 'vente', $args );
 }
+
+add_action( 'wp_enqueue_scripts', 'menu_scripts' );
+function menu_scripts() {
+  wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/custom.js');
+}
