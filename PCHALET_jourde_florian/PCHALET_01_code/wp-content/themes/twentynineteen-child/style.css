@@ -12,6 +12,7 @@ Version: 0.1.0
   --clr-brown: hsl(39, 100%, 26%);
   --clr-light-brown: hsl(39, 100%, 36%);
   --clr-light-cream: hsl(39, 100%, 90%);
+  --clr-very-light-cream: hsl(39, 100%, 97%);
   --clr-cream: #ffdb99;
   --clr-very-dark-brown: #1d160c;
   --clr-dark-brown: hsl(35, 41%, 25%);
@@ -57,9 +58,11 @@ li {
 
 a, .site-branding-container a, .entry .entry-title a {
   color: var(--clr-brown);
+  /*font-weight: 600;*/
 }
 
 .site-branding-container {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -84,6 +87,7 @@ a:hover, a:active {
 h1, h2, h3, h4, h5, h6 {
   color: var(--clr-dark-brown);
   margin: 0;
+  letter-spacing: 0.2em;
 }
 
 h1:not(.site-title):before, h2:before {
@@ -95,20 +99,77 @@ section {
 }
 
 section h2 {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+}
+
+.duplicate {
+  position: relative;
+}
+
+.duplicate::after {
+  font-family: var(--ff-secondary);
+  content: " " attr(data-title);
+  /*margin-top: 10px;*/
+  position: absolute;
+  /*left: 0;*/
+  /*right: 0;*/
+  /*top: 50%;*/
+  /*left: -25%;*/
+  /*transform: translateY(-55%);*/
+
+  top: 50%;
+  right: 50%;
+  transform: translateY(-55%) translateX(50%);
+
+  opacity: 0.15;
+  letter-spacing: 0;
+  font-size: 3em;
+  /*z-index: -1;*/
+  width: max-content;
+}
+
+.duplicate.multiple-lines::after {
+  width: auto;
+  /*font-size: 3em;*/
 }
 
 .site-header {
+  height: 120px;
+  display: flex;
+  align-items: center;
   position: fixed;
-  background-color: white;
+  background-color: transparent;
   z-index: 100;
   width: inherit;
   padding: 1rem 0;
   font-family: var(--ff-primary);
   text-transform: uppercase;
-  box-shadow: var(--bs-secondary);
+  font-weight: 600;
+  transition: .4s all;
+  box-shadow: unset;
+  letter-spacing: 0.2em;
   /*position: sticky;*/
   /*display: none;*/
+}
+
+.site-header.visible-navbar {
+  height: 80px;
+}
+
+.site-header a {
+  /*font-size: 600;*/
+  /*font-weight: 600;*/
+  color: var(--clr-light-cream);
+}
+
+.visible-navbar {
+  background-color: white;
+  box-shadow: var(--bs-secondary);
+}
+
+.visible-navbar a {
+  /*color: var(--clr-light-cream);*/
+  color: var(--clr-dark-brown);
 }
 
 .banner {
@@ -127,8 +188,20 @@ section h2 {
   color: var(--clr-light-cream);
 }
 
+.banner h2 {
+  /*color: var(--clr-cream);*/
+  opacity: 0.5;
+}
+
+.banner h1, .sales h2,.ad h2, .rentals h2 {
+  margin-right: auto;
+  margin-left: auto;
+  /*width: max-content;*/
+}
+
 .banner h1 {
-  margin-bottom: 50px;
+  margin-bottom: 250px;
+  /*font-size: 4em;*/
 }
 
 .banner::after {
@@ -146,13 +219,14 @@ section h2 {
 .banner .blog-info {
   position: absolute;
   z-index: 10;
+  margin-top: 75px;
 }
 
 .archive-banner {
-  height: 600px;
+  /*height: 600px;*/
 }
 
-.single-banner {
+.archive-banner, .single-banner {
   height: 400px;
 }
 
@@ -187,6 +261,8 @@ section h2 {
   background-color: var(--clr-light-cream);
   padding: 50px;
   width: 40%;
+  overflow: hidden;
+  text-align: left;
 }
 
 .wrapper {
@@ -203,19 +279,37 @@ section h2 {
   flex-direction: inherit;
 }
 
+.ad {
+  background-color: var(--clr-light-cream);
+}
+
+.ad h2 {
+margin-bottom: 0;
+}
+
 section {
   padding: 100px 0;
 }
 
 .rentals, .archive-rentals {
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
+}
+
+.rentals {
+  /*background-image: url(images/mountains_2_1.png);*/
+  /*background-size: cover;*/
+  /*background-color: var(--clr-very-light-cream);*/
 }
 
 .rentals .cards, .sales .cards, .archive-rentals .cards {
   text-align: left;
   display: grid;
   gap: 50px;
-  grid: repeat(2, 1fr) / auto-flow;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  /*gap: 50px;*/
+  /*grid: repeat(2, 1fr) / auto-flow;*/
   /*justify-content: space-between;*/
 }
 
@@ -239,7 +333,16 @@ section {
 }
 
 .rentals .title, .sales .title, .archive-rentals .title, .single-section .title {
-  margin-bottom: 20px;
+  /*margin-bottom: 40px;*/
+  /*text-align: left;*/
+}
+
+.title {
+  /*width: max-content;*/
+  text-align: center;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rentals .content,.sales .content,.archive-rentals .content, .single-section .content {
@@ -270,11 +373,14 @@ section {
 }
 
 .sales {
-  background-color: var(--clr-dark-brown);
+  background-color: var(--clr-very-dark-brown);
+  background-image: url(images/chalet_6_1.png);
+  background-size: cover;
 }
 
 .entry {
   margin-top: unset;
+  overflow: hidden;
 }
 
 .entry a {
@@ -290,4 +396,12 @@ section {
 
 .site-featured-image {
   z-index: -100;
+}
+
+.site-footer {
+  background-color: var(--clr-very-dark-brown);
+}
+
+.site-info {
+  text-align: center;
 }

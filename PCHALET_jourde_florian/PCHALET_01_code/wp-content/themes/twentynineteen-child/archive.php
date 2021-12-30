@@ -12,12 +12,12 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<!--	<div id="primary" class="content-area">-->
+<!--		<main id="main" class="site-main">-->
       <header class="archive-banner banner" style="background-image: url('<?= get_the_post_thumbnail_url(get_the_ID()); ?>');">
         <div class="blog-info">
           <div class="wrapper">
-            <h1><?= get_queried_object()->label; ?></h1>
+            <h1 data-title="<?= get_queried_object()->label; ?>" class="duplicate"><?= get_queried_object()->label; ?></h1>
           </div>
         </div>
       </header>
@@ -45,8 +45,8 @@ get_header();
           </div>
         </div>
       </section>
-		</main>
-	</div>
+<!--		</main>-->
+<!--	</div>-->
 
 <?php
 get_footer();

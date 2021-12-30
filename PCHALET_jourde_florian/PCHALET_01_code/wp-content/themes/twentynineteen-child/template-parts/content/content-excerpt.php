@@ -15,7 +15,10 @@
   <a href="<?= get_permalink(); ?>">
     <img class="thumbnail" src="<?= get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
     <div class="content">
-      <h3 class="title"><?php the_title(); ?></h3>
+
+      <h3 data-title="<?php the_title(); ?>" class="duplicate title"><?php the_title(); ?></h3>
+<!--      <h3 class="title">--><?php //the_title(); ?><!--</h3>-->
+
       <p class="description"><?php the_field('description', get_the_ID()); ?></p>
       <div class="infos">
         <?php if ((get_queried_object()->name) === 'location') : ?>

@@ -26,9 +26,11 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentynineteen' ); ?></a>
 		<header id="masthead" class="site-header">
-			<div class="site-branding-container">
         <div class="wrapper">
-          <a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a>
+			<div class="site-branding-container">
+<!--          <h1 data-title="--><?//= get_bloginfo('name')?><!--" class="duplicate">--><?//= get_bloginfo('name')?><!--</h1>-->
+          <a data-title="<?php bloginfo( 'name' ); ?>" class="duplicate big" href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a>
+<!--          <a href="--><?php //bloginfo( 'url' ); ?><!--">--><?php //bloginfo( 'name' ); ?><!--</a>-->
           <?= wp_nav_menu() ;?>
         </div>
 			</div>
