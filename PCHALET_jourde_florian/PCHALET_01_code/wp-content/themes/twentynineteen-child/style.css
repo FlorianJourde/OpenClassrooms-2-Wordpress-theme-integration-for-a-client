@@ -61,6 +61,10 @@ a, .site-branding-container a, .entry .entry-title a {
   /*font-weight: 600;*/
 }
 
+::selection {
+  background-color: var(--clr-light-cream);
+}
+
 .site-branding-container {
   width: 100%;
   display: flex;
@@ -120,7 +124,6 @@ section h2 {
   top: 50%;
   right: 50%;
   transform: translateY(-55%) translateX(50%);
-
   opacity: 0.15;
   letter-spacing: 0;
   font-size: 3em;
@@ -216,10 +219,14 @@ section h2 {
   /*position:relative;*/
 }
 
-.banner .blog-info {
+.banner .banner-title {
   position: absolute;
   z-index: 10;
   margin-top: 75px;
+}
+
+.banner .banner-title.home-banner-title {
+  margin-top: 250px;
 }
 
 .archive-banner {
@@ -287,7 +294,7 @@ section h2 {
 margin-bottom: 0;
 }
 
-section {
+section, #post-154 {
   padding: 100px 0;
 }
 
@@ -311,6 +318,7 @@ section {
   /*gap: 50px;*/
   /*grid: repeat(2, 1fr) / auto-flow;*/
   /*justify-content: space-between;*/
+  margin-bottom: 50px;
 }
 
 .rentals .entry, .sales .entry, .archive-rentals .entry {
@@ -376,6 +384,7 @@ section {
   background-color: var(--clr-very-dark-brown);
   background-image: url(images/chalet_6_1.png);
   background-size: cover;
+  background-position: center;
 }
 
 .entry {
@@ -404,4 +413,69 @@ section {
 
 .site-info {
   text-align: center;
+}
+
+input[type=text], input[type=email], input[type=url], input[type=password], input[type=search], input[type=number], input[type=tel], input[type=range], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color], textarea {
+  border-radius: var(--br-secondary);
+}
+
+.wpcf7-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+}
+
+form p {
+  margin: 0;
+}
+
+.wpcf7-form :nth-last-child(-n+3) {
+  grid-column: 1 / 3;
+}
+
+.wpcf7-form-control {
+  width: 100%;
+}
+
+.button, button, input[type=button], input[type=reset], input[type=submit] {
+  border-radius: var(--br-secondary);
+  background-color: var(--clr-brown);
+  font-size: inherit;
+}
+
+.button:hover, button:hover, input[type=button]:hover, input[type=reset]:hover, input[type=submit]:hover {
+  background: var(--clr-dark-brown);
+  color: var(--clr-very-light-cream);
+  /*cursor: pointer;*/
+}
+
+@media screen and (max-width: 600px) {
+  .rentals .cards, .sales .cards, .archive-rentals .cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .single-section {
+    flex-direction: column;
+  }
+
+  .single-section .showing, .single-section .content {
+    width: unset;
+    /*margin-right: unset;*/
+  }
+
+  .single-section .showing {
+    margin-right: unset;
+  }
+
+  .single-section :not(:last-child) > *{
+    margin-bottom: 50px;
+  }
+
+  .wpcf7-form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .wpcf7-form :nth-last-child(-n+3) {
+    grid-column: unset;
+  }
 }

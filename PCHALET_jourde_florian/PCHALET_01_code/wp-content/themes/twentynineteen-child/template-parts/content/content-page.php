@@ -11,53 +11,41 @@
 
 ?>
 
-<!--<div id="primary" class="content-area">-->
-<!--  <main id="main" class="site-main">-->
-    <header class="archive-banner banner" style="background-image: url('<?= get_the_post_thumbnail_url(get_the_ID()); ?>');">
-      <div class="blog-info">
-        <div class="wrapper">
-          <h1 data-title="<?= get_queried_object()->label; ?>" class="duplicate"><?= get_queried_object()->label; ?></h1>
-        </div>
+  <header class="archive-banner banner"
+    <?php if ( ! twentynineteen_can_show_post_thumbnail() ) : ?>
+      style="background-image: url('<?php bloginfo('template_directory'); ?>-child/images/chalet_7.jpg')"
+    <?php else : ?>
+      style="background-image: url('<?= get_the_post_thumbnail_url(get_the_ID()); ?>');"
+    <?php endif; ?> >
+    <div class="banner-title">
+      <div class="wrapper">
+        <h1 data-title="<?= get_the_title() ?>" class="duplicate"><?= get_the_title() ?></h1>
       </div>
-    </header>
-
-<!--    <section class="archive-rentals">-->
-<!--      <div class="wrapper">-->
-<!--        <div class="cards">-->
-<!---->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </section>-->
-<!--  </main>-->
-<!--</div>-->
+    </div>
+  </header>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( ! twentynineteen_can_show_post_thumbnail() ) : ?>
-	<header class="entry-header">
-		<?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
-	</header>
-	<?php endif; ?>
+  <div class="wrapper">
 
-	<div class="entry-content">
-		<?php
-		the_content();
+      <?php
+      the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'twentynineteen' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+      wp_link_pages(
+        array(
+          'before' => '<div class="page-links">' . __( 'Pages:', 'twentynineteen' ),
+          'after'  => '</div>',
+        )
+      );
+      ?>
 
-	<?php if ( get_edit_post_link() ) : ?>
+  </div>
+
+  <?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
 			edit_post_link(
 				sprintf(
 					wp_kses(
-						/* translators: %s: Post title. Only visible to screen readers. */
 						__( 'Edit <span class="screen-reader-text">%s</span>', 'twentynineteen' ),
 						array(
 							'span' => array(
@@ -71,6 +59,6 @@
 				'</span>'
 			);
 			?>
-		</footer><!-- .entry-footer -->
+		</footer>
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->

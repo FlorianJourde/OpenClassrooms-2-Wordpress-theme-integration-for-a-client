@@ -15,9 +15,9 @@ get_header();
 <!--	<div id="primary" class="content-area">-->
 <!--		<main id="main" class="site-main">-->
       <header class="single-banner banner" style="background-image: url('<?= get_the_post_thumbnail_url(get_the_ID()); ?>');">
-        <div class="blog-info">
+        <div class="banner-title">
           <div class="wrapper">
-            <h1 data-title="<?php the_title(); ?>" class="duplicate"><?php the_title(); ?></h1>
+            <h1 data-title="<?php the_title(); ?>" class="duplicate multiple-lines"><?php the_title(); ?></h1>
 <!--            <h1>--><?php //the_title(); ?><!--</h1>-->
           </div>
         </div>
