@@ -13,20 +13,21 @@
 
 ?>
 
-</div>
-
-<footer id="colophon" class="site-footer">
-  <div class="site-info">
-    <div class="wrapper">
-    <a class="site-name" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-    </a>
-    </div>
   </div>
-</footer>
+
+  <footer id="colophon" class="site-footer">
+    <div class="site-info">
+      <div class="wrapper">
+        <a class="site-name" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?> ©</a>
+        <a href="<?= site_url('/mention-legales'); ?>">Mentions légales</a>
+      </div>
+    </div>
+  </footer>
 
 </div>
 
 <?php wp_footer(); ?>
+<script src="https://kit.fontawesome.com/47ba54db70.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

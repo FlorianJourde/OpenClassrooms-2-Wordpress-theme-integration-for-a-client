@@ -11,18 +11,25 @@
 
 ?>
 
-  <header class="archive-banner banner"
-    <?php if ( ! twentynineteen_can_show_post_thumbnail() ) : ?>
-      style="background-image: url('<?php bloginfo('template_directory'); ?>-child/images/chalet_7.jpg')"
-    <?php else : ?>
-      style="background-image: url('<?= get_the_post_thumbnail_url(get_the_ID()); ?>');"
-    <?php endif; ?> >
-    <div class="banner-title">
-      <div class="wrapper">
-        <h1 data-title="<?= get_the_title() ?>" class="duplicate"><?= get_the_title() ?></h1>
-      </div>
+<header class="archive-banner banner"
+  <?php if ( ! twentynineteen_can_show_post_thumbnail() ) : ?>
+    style="background-image: url('<?php bloginfo('template_directory'); ?>-child/images/chalet_7.jpg')"
+  <?php else : ?>
+    style="background-image: url('<?= get_the_post_thumbnail_url(get_the_ID()); ?>');"
+  <?php endif; ?> >
+  <div class="banner-title">
+    <div class="wrapper">
+      <h1 data-title="<?= get_the_title() ?>" class="duplicate"><?= get_the_title() ?></h1>
     </div>
-  </header>
+  </div>
+</header>
+
+<?php if (get_field('accroche', get_the_ID())) :  ?>
+  <section class="ad">
+    <h2 data-title="<?php the_field('accroche', get_the_ID()); ?>" class="duplicate"><?php the_field('accroche', get_the_ID()); ?></h2>
+  </section>
+<?php endif; ?>
+
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="wrapper">

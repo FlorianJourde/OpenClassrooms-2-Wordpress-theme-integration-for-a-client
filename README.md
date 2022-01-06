@@ -1,6 +1,6 @@
 # OpenClassrooms - Wordpress theme integration for a client
 
-![OpenClassrooms banneer](./ressources/images/oc_banner.png)
+![OpenClassrooms banneer](./ressources/images/chalets-caviar-banner.jpg)
 
 ### About
 

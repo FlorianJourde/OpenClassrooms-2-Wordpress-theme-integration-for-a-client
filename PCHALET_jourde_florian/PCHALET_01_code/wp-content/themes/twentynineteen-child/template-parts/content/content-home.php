@@ -36,20 +36,23 @@
 
       while ( $query->have_posts() ) : $query->the_post(); ?>
 
-        <div class="entry">
-          <a href="<?= get_permalink(); ?>">
-            <img class="thumbnail" src="<?= get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-            <div class="content">
-              <h3 data-title="<?php the_title(); ?>" class="duplicate multiline title"><?php the_title(); ?></h3>
-              <!--                    <h3 class="title">--><?php //the_title(); ?><!--</h3>-->
-              <p class="description"><?php the_field('description', get_the_ID()); ?></p>
-              <div class="infos">
-                <p class="price"><?php the_field('prix_a_la_semaine', get_the_ID()); ?> €</p>
-                <p class="capacity"><?php the_field('capacite', get_the_ID()); ?> places</p>
-              </div>
-            </div>
-          </a>
-        </div>
+        <?php get_template_part( 'template-parts/content/content', 'rentals-related' ); ?>
+
+<!--      <div class="entry">-->
+<!--        <a href="--><?//= get_permalink(); ?><!--">-->
+<!--          <div class="thumbnail-container">-->
+<!--            <img class="thumbnail" src="--><?//= get_the_post_thumbnail_url(get_the_ID()); ?><!--" alt="">-->
+<!--          </div>-->
+<!--          <div class="content">-->
+<!--            <h3 data-title="--><?php //the_title(); ?><!--" class="duplicate multiline title">--><?php //the_title(); ?><!--</h3>-->
+<!--            <p class="description">--><?php //the_field('description', get_the_ID()); ?><!--</p>-->
+<!--            <div class="infos">-->
+<!--              <p class="price"><i class="fas fa-euro-sign"></i>--><?php //the_field('prix_a_la_semaine', get_the_ID()); ?><!-- €</p>-->
+<!--              <p class="capacity"><i class="fas fa-user-friends"></i>--><?php //the_field('capacite', get_the_ID()); ?><!-- places</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </a>-->
+<!--      </div>-->
 
       <?php endwhile; ?>
 
@@ -61,9 +64,11 @@
   </div>
 </section>
 
-<section class="ad">
-  <h2 data-title="Envie d'évasion ?" class="duplicate">Envie d'évasion ?</h2>
-</section>
+<?php if (get_field('accroche', get_the_ID())) :  ?>
+  <section class="ad">
+    <h2 data-title="<?php the_field('accroche', get_the_ID()); ?>" class="duplicate"><?php the_field('accroche', get_the_ID()); ?></h2>
+  </section>
+<?php endif; ?>
 
 <section class="sales">
   <div class="wrapper">
@@ -81,27 +86,14 @@
 
       while ( $query->have_posts() ) : $query->the_post(); ?>
 
-        <div class="entry">
-          <a href="<?= get_permalink(); ?>">
-            <img class="thumbnail" src="<?= get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-            <div class="content">
-              <h3 data-title="<?php the_title(); ?>" class="duplicate title"><?php the_title(); ?></h3>
-              <!--                    <h3 class="title">--><?php //the_title(); ?><!--</h3>-->
-              <p class="description"><?php the_field('description', get_the_ID()); ?></p>
-              <div class="infos">
-                <p class="price"><?php the_field('prix', get_the_ID()); ?> €</p>
-                <p class="surface"><?php the_field('superficie', get_the_ID()); ?> m²</p>
-              </div>
-            </div>
-          </a>
-        </div>
+        <?php get_template_part( 'template-parts/content/content', 'sales-related' ); ?>
 
-        <?php endwhile; ?>
+      <?php endwhile; ?>
 
-        </div>
-        <a href="<?= site_url(); ?>/<?= get_post_type(); ?>" class="button">Toutes nos ventes</a>
+      </div>
+      <a href="<?= site_url(); ?>/<?= get_post_type(); ?>" class="button">Toutes nos ventes</a>
 
-        <?php wp_reset_postdata(); ?>
+      <?php wp_reset_postdata(); ?>
 
     </div>
   </div>
