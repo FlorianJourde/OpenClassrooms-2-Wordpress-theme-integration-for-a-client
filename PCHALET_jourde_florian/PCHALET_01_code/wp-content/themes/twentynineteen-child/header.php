@@ -28,11 +28,28 @@
 		<header id="masthead" class="site-header">
       <div class="wrapper">
 			  <div class="site-branding-container">
-<!--          <h1 data-title="--><?//= get_bloginfo('name')?><!--" class="duplicate">--><?//= get_bloginfo('name')?><!--</h1>-->
+
           <a data-title="<?php bloginfo( 'name' ); ?>" class="duplicate big" href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a>
-<!--          <a href="--><?php //bloginfo( 'url' ); ?><!--">--><?php //bloginfo( 'name' ); ?><!--</a>-->
+          <div class="site-branding">
+            <?php if ( has_nav_menu( 'menu-1' ) ) : ?>
+              <nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentynineteen' ); ?>">
+                <?php
+                wp_nav_menu(
+                  array(
+                    'theme_location' => 'menu-1',
+                    'menu_class'     => 'main-menu',
+                    'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                  )
+                );
+                ?>
+              </nav>
+            <?php endif; ?>
+          </div>
+
           <?= wp_nav_menu() ;?>
+
         </div>
 			</div>
 		</header>
 	<div id="content" class="site-content">
+

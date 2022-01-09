@@ -168,6 +168,13 @@ class TwentyNineteen_SVG_Icons {
     </g>
 </svg>',
 
+		'burger_icon' => /* custom – burger_icon */ '
+<svg viewBox="0 0 100 80" width="40" height="40">
+    <rect width="100" height="15" rx="8"></rect>
+    <rect y="35" width="100" height="15" rx="8"></rect>
+    <rect y="70" width="100" height="15" rx="8"></rect>
+</svg>',
+
 	);
 
 	/**

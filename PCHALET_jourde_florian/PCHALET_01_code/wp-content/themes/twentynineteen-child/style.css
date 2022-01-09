@@ -76,12 +76,39 @@ a, .site-branding-container a, .entry .entry-title a {
   justify-content: space-between;
 }
 
-#menu-menu-navbar {
+#menu-menu-navbar-1 {
   display: flex;
 }
 
-#menu-menu-navbar li:not(:last-child){
+
+#menu-menu-navbar-1 li:not(:last-child){
   margin-right: 30px;
+}
+
+.main-navigation .main-menu > li {
+  color: var(--clr-light-cream);
+}
+
+.main-navigation .sub-menu {
+  background-color: var(--clr-dark-brown);
+  padding: 100px !important;
+  text-align: center;
+}
+
+.main-navigation .sub-menu .menu-item a {
+  padding: 40px 20px;
+}
+
+.main-navigation .sub-menu > li > .menu-item-link-return {
+  text-align: center;
+  font-size: var(--fs-body);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.main-navigation .sub-menu > li > .menu-item-link-return svg {
+  width: 18px;
+  height: 18px;
 }
 
 a:hover, a:active {
@@ -179,6 +206,10 @@ section h2 {
 .visible-navbar a {
   /*color: var(--clr-light-cream);*/
   color: var(--clr-dark-brown);
+}
+
+.visible-navbar svg {
+  fill: var(--clr-dark-brown);
 }
 
 .banner {
@@ -508,7 +539,97 @@ form p {
   margin-right: 10px;
 }
 
+#cookie-law-info-again {
+  box-shadow: rgba(0, 0%, 0%, 0.15) 0px 4px 24px, rgba(0, 0%, 0%, 0.15) 0px 2px 6px!important;
+  border-radius: 10px 10px 0 0!important;
+  padding: 3px 15px!important;
+}
+
+#cookie-law-info-bar {
+  padding: 0!important;
+  border-radius: 10px!important;
+  width: 420px!important;
+  max-width: 100%!important;
+}
+
+#cookie-law-info-bar span {
+  display: flex;
+}
+
+#cookie-law-info-bar .cli-bar-message {
+  padding: 20px 30px;
+  /*font-size: 14px!important;*/
+}
+
+#cookie-law-info-bar .cli-bar-message > div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#cookie-law-info-bar .cli-bar-message > div p {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+#cookie-law-info-bar .cli-bar-message > div p span {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+#cookie-law-info-bar .cli-bar-message > div img {
+  width: 100px;
+  display: block;
+}
+
+#cookie-law-info-bar .cli-bar-message a {
+  margin: 5px 0 0!important;
+  display: block!important;
+}
+
+#cookie-law-info-bar .cli-bar-btn_container {
+  flex-wrap: nowrap!important;
+  border-top: 1px solid #E9E9E9!important;
+}
+
+#cookie-law-info-bar .cli-bar-btn_container a {
+  margin: 0!important;
+  padding: 10px 15px!important;
+  background: none!important;
+  text-decoration: none!important;
+  font-size: 14px!important;
+  flex: 1;
+  color: #616161!important;
+  font-weight: 600;
+}
+
+#cookie-law-info-bar .cli-bar-btn_container a:hover {
+  background-color: #eee!important;
+}
+
+#cookie-law-info-bar .cli-bar-btn_container a:not(:last-child) {
+  border-right: 1px solid #E9E9E9!important;
+}
+
+#menu-menu-navbar-1 {
+  /*display: flex;*/
+}
+
+.site-branding {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
+  .site-branding {
+    display: block;
+  }
+
+  .menu-menu-navbar-container {
+    display: none;
+  }
+
   .rentals .cards, .sales .cards, .archive-rentals .cards {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -537,4 +658,6 @@ form p {
   .wpcf7-form :nth-last-child(-n+3) {
     grid-column: unset;
   }
+
+
 }

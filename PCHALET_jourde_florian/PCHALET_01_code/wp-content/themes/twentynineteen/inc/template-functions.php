@@ -134,13 +134,13 @@ function twentynineteen_add_ellipses_to_nav( $nav_menu, $args ) {
 					<li class="menu-item menu-item-has-children">
 						<button class="submenu-expand main-menu-more-toggle is-empty" tabindex="-1"
 							aria-label="' . esc_attr__( 'More', 'twentynineteen' ) . '" aria-haspopup="true" aria-expanded="false">' .
-							twentynineteen_get_icon_svg( 'arrow_drop_down_ellipsis' ) . '
+							twentynineteen_get_icon_svg( 'burger_icon' ) . '
 						</button>
 						<ul class="sub-menu hidden-links">
 							<li class="mobile-parent-nav-menu-item">
 								<button class="menu-item-link-return">' .
 									twentynineteen_get_icon_svg( 'chevron_left' ) .
-									esc_html__( 'Back', 'twentynineteen' ) . '
+									esc_html__( 'Retour', 'twentynineteen' ) . '
 								</button>
 							</li>
 						</ul>
