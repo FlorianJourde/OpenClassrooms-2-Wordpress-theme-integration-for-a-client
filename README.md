@@ -1,6 +1,6 @@
 # OpenClassrooms - Wordpress theme integration for a client
 
-![OpenClassrooms banneer](./ressources/images/chalets-caviar-banner.jpg)
+![OpenClassrooms banneer](./PCHALET_jourde_florian/PCHALET_01_code/wp-content/themes/twentynineteen-child/screenshot.png)
 
 ### About
 
