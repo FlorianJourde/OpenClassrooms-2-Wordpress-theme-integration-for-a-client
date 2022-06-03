@@ -6,6 +6,7 @@
 
 Second project of PHP/Symfony journey to learn web development with OpenClassrooms
 
+[Preview-site](http://chaletsetcaviar.florianjourde.com/)
+
 **PHP, Wordpress**
 
-[Preview-site](http://chaletsetcaviar.florianjourde.com/)
