@@ -14,7 +14,7 @@
 <div class="entry">
   <a href="<?= get_permalink(); ?>">
     <div class="thumbnail-container">
-      <img class="thumbnail" src="<?= get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+      <img class="thumbnail" src="<?= get_the_post_thumbnail_url(get_the_ID(), "medium_large"); ?>" alt="">
     </div>
     <div class="content">
       <h3 data-title="<?php the_title(); ?>" class="duplicate multiline title"><?php the_title(); ?></h3>
